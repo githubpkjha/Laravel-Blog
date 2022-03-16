@@ -56,7 +56,7 @@ class BlogController extends Controller
         $article->blog_image = $blogImg;
         $article->save();
 
-        return back()->with('success','Blogs created successfully.');
+        return back()->with('success','Blog created successfully.');
     }
 
     // Blog details
@@ -106,7 +106,7 @@ class BlogController extends Controller
         $article->tags = $request->tags;
         $article->save();
 
-        return back()->with('success','Blogs updated successfully.');
+        return back()->with('success','Blog updated successfully.');
     }
     
     // Delete blog 
@@ -116,6 +116,6 @@ class BlogController extends Controller
             return redirect('/');
 
         $blog->delete();
-        return back()->with('success','Blogs deleted successfully.');
+        return back()->with('success','Blog deleted successfully.');
     }
 }

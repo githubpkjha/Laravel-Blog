@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
-	<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="/">Home</a></li>
       
-      <li class="right-nav"><a href="/add-blog">Add Blog</a></li>
+      <li class="right-nav"><a href="/add-blog">Add New Entry</a></li>
     </ul>
   </div>
 </nav>
@@ -36,13 +36,12 @@
 		@foreach($blog as $key => $article)
 		<div class="blog-list">
 		@if($cnt == 1)
-			<h1><a href={{url('/blog/'.$article->slug)}}> {{ $article->title }}</a></h1>
+			<h1><b><a href={{url('/blog/'.$article->slug)}}> {{ $article->title }}</a></b></h1>
 		@else
 			<h2><a href={{url('/blog/'.$article->slug)}}> {{ $article->title }}</a></h2>
 		@endif
 		<span><img src="{{asset($article->blog_image)}}"></span>
 			<h3>{{ $article->short_desc }}</h3>
-			<p>{!! $article->long_desc !!}</p>
 			<div class="tags-div">
 				<strong>Tag:</strong>
 				@php 

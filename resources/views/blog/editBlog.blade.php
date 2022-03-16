@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
-	<script src="http://demo.itsolutionstuff.com/plugin/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
     <ul class="nav navbar-nav">
       <li class=""><a href="/">Home</a></li>
       
-      <li class="right-nav"><a href="/add-blog">Add Blog</a></li>
+      <li class="right-nav"><a href="/add-blog">Add New Entry</a></li>
     </ul>
   </div>
 </nav>
@@ -56,7 +56,12 @@
 						<label>Tags:</label><br/>
 						<span>In case of multiple tags, add comma after every tag. Ex tag1,tag2</span>
 						<br/>
-						<input type="text" class="form-control" name="tags" placeholder="Tags" value="{{ $blog->tags }}">
+						<input type="text" class="form-control" id="tags" name="tags" placeholder="Tags" value="{{ $blog->tags }}">
+						<a href="#" class="pre-tag" data-val="Tag 1"><u>Tag 1</u></a>
+						<a href="#" class="pre-tag" data-val="Tag 2"><u>Tag 2</u></a>
+						<a href="#" class="pre-tag" data-val="Tag 3"><u>Tag 3</u></a>
+						<a href="#" class="pre-tag" data-val="Tag 4"><u>Tag 4</u></a>
+						<a href="#" class="pre-tag" data-val="Tag 5"><u>Tag 5</u></a>
 					</div>	
 
 					<div class="form-group">
@@ -74,6 +79,18 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
 
+$('.pre-tag').click(function() {
+	var ctag = $('#tags').val();
+	var selectedTag = $(this).attr("data-val");
+	if (ctag != '') {
+		var finalTag = ctag+','+selectedTag;
+	}else{
+		var finalTag = $(this).attr("data-val");
+	}
+	$('#tags').val(finalTag);
+})
+</script>
 </body>
 </html>
